@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Piyush Mittal — Senior Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0e0e;
+  --ink-2:#3a3a3a;
+  --ink-3:#767676;
+  --paper:#f7f5f0;
+  --paper-2:#ede9e1;
+  --accent:#c94a00;
+  --accent-2:#ff6b2b;
+  --gold:#c9a84c;
+  --green:#1a6b3c;
+  --blue:#1a3d6b;
+  --border:rgba(14,14,14,0.10);
+  --border-strong:rgba(14,14,14,0.20);
+  --nav-h:64px;
+  --max:1100px;
+  --ff-head:'Syne',sans-serif;
+  --ff-body:'DM Sans',sans-serif;
+  --ff-mono:'DM Mono',monospace;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--ff-body);
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;
+  background:var(--paper);
+  border-bottom:0.5px solid var(--border);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.nav-logo{
+  font-family:var(--ff-head);
+  font-weight:800;
+  font-size:1.05rem;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+  text-decoration:none;
+}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{
+  font-size:0.8rem;
+  font-weight:400;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--accent)}
+
+/* LAYOUT */
+.container{max-width:var(--max);margin:0 auto;padding:0 2rem}
+section{padding:5rem 0}
+
+/* HERO */
+#hero{
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:4rem;
+  padding-top:calc(var(--nav-h) + 4rem);
+  padding-bottom:4rem;
+  max-width:var(--max);
+  margin:0 auto;
+  padding-left:2rem;
+  padding-right:2rem;
+}
+.hero-eyebrow{
+  font-family:var(--ff-mono);
+  font-size:0.72rem;
+  font-weight:300;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--accent)}
+h1.hero-name{
+  font-family:var(--ff-head);
+  font-weight:800;
+  font-size:clamp(2.6rem,5vw,4rem);
+  letter-spacing:-0.04em;
+  line-height:1.05;
+  color:var(--ink);
+  margin-bottom:0.5rem;
+}
+h2.hero-title{
+  font-family:var(--ff-head);
+  font-weight:500;
+  font-size:clamp(1rem,2vw,1.25rem);
+  color:var(--ink-2);
+  letter-spacing:-0.01em;
+  margin-bottom:1.75rem;
+  line-height:1.4;
+}
+.hero-summary{
+  font-size:0.95rem;
+  color:var(--ink-2);
+  max-width:480px;
+  margin-bottom:2rem;
+}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.65rem 1.4rem;
+  font-family:var(--ff-body);
+  font-size:0.82rem;
+  font-weight:500;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border-radius:2px;
+  transition:all 0.2s var(--ease);
+  cursor:pointer;
+}
+.btn-primary{background:var(--accent);color:#fff;border:1.5px solid var(--accent)}
+.btn-primary:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--border-strong)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px)}
+
+.hero-domains{
+  display:flex;flex-wrap:wrap;gap:0.5rem;
+  margin-top:2rem;
+}
+.domain-pill{
+  display:inline-block;
+  padding:0.35rem 0.8rem;
+  border:0.5px solid var(--border-strong);
+  border-radius:2px;
+  font-family:var(--ff-mono);
+  font-size:0.65rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+  background:var(--paper-2);
+}
+
+/* Hero visual */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-badge-ring{
+  width:360px;height:360px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  animation:spin-slow 30s linear infinite;
+}
+@keyframes spin-slow{to{transform:rotate(360deg)}}
+.hero-badge-inner{
+  width:240px;height:240px;
+  border-radius:50%;
+  background:var(--paper-2);
+  border:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  animation:spin-slow 30s linear infinite reverse;
+  text-align:center;
+  padding:1.5rem;
+}
+.hero-badge-inner .big-letter{
+  font-family:var(--ff-head);
+  font-size:4rem;
+  font-weight:800;
+  color:var(--ink);
+  line-height:1;
+}
+.hero-badge-inner .role-tag{
+  font-family:var(--ff-mono);
+  font-size:0.6rem;
+  letter-spacing:0.1em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+  margin-top:0.5rem;
+}
+.orbit-dot{
+  position:absolute;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--accent);
+  top:calc(50% - 5px);
+  left:-5px;
+  transform-origin:calc(180px + 5px) 5px;
+}
+.orbit-dot.d2{
+  background:var(--gold);
+  transform:rotate(120deg);
+}
+.orbit-dot.d3{
+  background:var(--ink-2);
+  transform:rotate(240deg);
+}
+.orbit-labels{
+  position:absolute;
+  inset:0;
+  animation:spin-slow 30s linear infinite reverse;
+}
+.orbit-label{
+  position:absolute;
+  font-family:var(--ff-mono);
+  font-size:0.6rem;
+  letter-spacing:0.08em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.orbit-label.l1{top:10px;left:50%;transform:translateX(-50%)}
+.orbit-label.l2{bottom:10px;left:20%}
+.orbit-label.l3{bottom:10px;right:14%}
+
+/* DIVIDER */
+.divider{
+  display:flex;align-items:center;gap:1.5rem;
+  margin:0 auto;
+  max-width:var(--max);
+  padding:0 2rem;
+}
+.divider-line{flex:1;height:0.5px;background:var(--border)}
+.divider-label{
+  font-family:var(--ff-mono);
+  font-size:0.65rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  white-space:nowrap;
+}
+
+/* SECTION HEADERS */
+.section-eyebrow{
+  font-family:var(--ff-mono);
+  font-size:0.68rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:0.75rem;
+}
+h2.section-title{
+  font-family:var(--ff-head);
+  font-weight:700;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  letter-spacing:-0.03em;
+  color:var(--ink);
+  line-height:1.1;
+  margin-bottom:0.5rem;
+}
+.section-sub{font-size:0.9rem;color:var(--ink-3);max-width:520px;margin-bottom:3rem}
+
+/* ABOUT */
+#about{background:var(--paper)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{
+  font-size:0.95rem;
+  color:var(--ink-2);
+  line-height:1.9;
+  margin-bottom:1rem;
+}
+.about-highlights{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.highlight-item{
+  background:var(--paper);
+  padding:1.25rem 1.5rem;
+  display:flex;gap:1rem;align-items:flex-start;
+  transition:background 0.2s;
+}
+.highlight-item:hover{background:var(--paper-2)}
+.hi-title{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.2rem}
+.hi-desc{font-size:0.78rem;color:var(--ink-3);line-height:1.5}
+
+/* EXPERIENCE */
+#experience{background:var(--paper-2)}
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:2.5rem;
+  padding:2.5rem 0;
+  border-bottom:0.5px solid var(--border);
+  position:relative;
+}
+.exp-item:last-child{border-bottom:none}
+.exp-meta{}
+.exp-co{
+  font-family:var(--ff-head);
+  font-size:0.85rem;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+  margin-bottom:0.25rem;
+}
+.exp-date{
+  font-family:var(--ff-mono);
+  font-size:0.65rem;
+  letter-spacing:0.06em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+}
+.exp-location{
+  font-size:0.72rem;
+  color:var(--ink-3);
+  margin-top:0.2rem;
+}
+.exp-content{}
+.exp-role{
+  font-family:var(--ff-head);
+  font-weight:600;
+  font-size:1.1rem;
+  color:var(--ink);
+  letter-spacing:-0.02em;
+  margin-bottom:1rem;
+}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.exp-bullets li{
+  font-size:0.88rem;
+  color:var(--ink-2);
+  line-height:1.7;
+  padding-left:1.2rem;
+  position:relative;
+}
+.exp-bullets li::before{
+  content:'→';
+  position:absolute;left:0;
+  color:var(--accent);
+  font-size:0.75rem;
+  top:3px;
+}
+.exp-tag{
+  display:inline-block;
+  background:var(--paper);
+  border:0.5px solid var(--border-strong);
+  border-radius:2px;
+  padding:0.2rem 0.55rem;
+  font-family:var(--ff-mono);
+  font-size:0.62rem;
+  letter-spacing:0.06em;
+  color:var(--ink-2);
+  margin:0.3rem 0.2rem 0 0;
+  text-transform:uppercase;
+}
+.exp-tag.accent{background:rgba(201,74,0,0.06);border-color:rgba(201,74,0,0.25);color:var(--accent)}
+
+/* SKILLS */
+#skills{background:var(--paper)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.skill-group{
+  background:var(--paper);
+  padding:1.75rem;
+  transition:background 0.2s;
+}
+.skill-group:hover{background:var(--paper-2)}
+.sg-head{
+  display:flex;align-items:center;gap:0.75rem;
+  margin-bottom:1rem;
+}
+.sg-title{
+  font-family:var(--ff-head);
+  font-weight:700;
+  font-size:0.82rem;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+.sg-chips{display:flex;flex-wrap:wrap;gap:0.35rem}
+.chip{
+  display:inline-block;
+  padding:0.2rem 0.55rem;
+  font-family:var(--ff-mono);
+  font-size:0.63rem;
+  letter-spacing:0.04em;
+  color:var(--ink-2);
+  background:var(--paper-2);
+  border:0.5px solid var(--border);
+  border-radius:2px;
+}
+
+/* PATENTS */
+#patents{background:var(--paper-2)}
+.patent-card{
+  border:1px solid var(--border);
+  border-radius:4px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:6px 1fr;
+}
+.patent-bar{background:var(--accent)}
+.patent-body{
+  padding:2rem;
+  background:var(--paper);
+}
+.patent-label{
+  font-family:var(--ff-mono);
+  font-size:0.62rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:0.5rem;
+}
+.patent-title{
+  font-family:var(--ff-head);
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:-0.02em;
+  margin-bottom:0.75rem;
+}
+.patent-desc{font-size:0.88rem;color:var(--ink-2);line-height:1.8}
+.cert-row{
+  display:flex;align-items:center;gap:0.75rem;
+  margin-top:1.5rem;
+  padding-top:1.5rem;
+  border-top:0.5px solid var(--border);
+}
+.cert-badge{
+  background:rgba(201,74,0,0.08);
+  border:0.5px solid rgba(201,74,0,0.25);
+  border-radius:2px;
+  padding:0.25rem 0.65rem;
+  font-family:var(--ff-mono);
+  font-size:0.62rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.cert-text{font-size:0.82rem;color:var(--ink-2)}
+
+/* EDUCATION */
+#education{background:var(--paper)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.edu-card{
+  background:var(--paper);
+  padding:2rem;
+  transition:background 0.2s;
+}
+.edu-card:hover{background:var(--paper-2)}
+.edu-inst{
+  font-family:var(--ff-head);
+  font-weight:700;
+  font-size:0.95rem;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+  margin-bottom:0.35rem;
+}
+.edu-degree{
+  font-size:0.85rem;
+  color:var(--ink-2);
+  margin-bottom:0.35rem;
+  line-height:1.5;
+}
+.edu-year{
+  font-family:var(--ff-mono);
+  font-size:0.65rem;
+  letter-spacing:0.08em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+}
+
+/* CONTACT */
+#contact{background:var(--paper-2);text-align:center}
+.contact-inner{max-width:600px;margin:0 auto}
+#contact h2.section-title{margin-bottom:0.75rem}
+#contact .section-sub{margin:0 auto 2.5rem}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.contact-chip{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.65rem 1.25rem;
+  border:1px solid var(--border-strong);
+  border-radius:2px;
+  font-size:0.82rem;
+  font-weight:400;
+  color:var(--ink-2);
+  text-decoration:none;
+  transition:all 0.2s;
+  background:var(--paper);
+}
+.contact-chip:hover{border-color:var(--accent);color:var(--accent);background:rgba(201,74,0,0.04)}
+.contact-chip svg{width:16px;height:16px;flex-shrink:0}
+
+/* FOOTER */
+footer{
+  background:var(--ink);
+  color:rgba(255,255,255,0.4);
+  text-align:center;
+  padding:1.75rem 2rem;
+  font-family:var(--ff-mono);
+  font-size:0.65rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+footer span{color:rgba(255,255,255,0.7)}
+
+/* SCROLL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #hero{grid-template-columns:1fr;gap:2rem}
+  .hero-visual{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .exp-item{grid-template-columns:1fr;gap:0.5rem}
+  .exp-meta{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+  .edu-grid{grid-template-columns:1fr}
+  nav{padding:0 1rem}
+  .container{padding:0 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">PM<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#patents">Patents</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div>
+    <div class="hero-eyebrow">Available for senior / staff roles</div>
+    <h1 class="hero-name">Piyush<br>Mittal</h1>
+    <h2 class="hero-title">Senior Data Scientist — Ad Tech, ML Systems & GenAI</h2>
+    <p class="hero-summary">9+ years building production ML systems across ad tech, information retrieval, and large-scale AI — from real-time auction engines and ranking models to multi-agent GenAI pipelines.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="mailto:piyush_ds@email.com">Get in touch →</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/piyush-ds" target="_blank">LinkedIn ↗</a>
+    </div>
+    <div class="hero-domains">
+      <span class="domain-pill">Ad Tech & Auction Systems</span>
+      <span class="domain-pill">Sponsored Search & Ranking</span>
+      <span class="domain-pill">CTR / Revenue Modeling</span>
+      <span class="domain-pill">GenAI & LLM Orchestration</span>
+      <span class="domain-pill">Multi-Agent Frameworks</span>
+      <span class="domain-pill">GCP · BigQuery · Spark</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-badge-ring">
+      <div class="orbit-dot"></div>
+      <div class="orbit-dot d2"></div>
+      <div class="orbit-dot d3"></div>
+      <div class="hero-badge-inner">
+        <div class="big-letter">PM</div>
+        <div class="role-tag">Ad Tech · ML · GenAI</div>
+      </div>
+      <div class="orbit-labels">
+        <span class="orbit-label l1">Auction Systems</span>
+        <span class="orbit-label l2">LLM Orchestration</span>
+        <span class="orbit-label l3">CTR Prediction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-eyebrow">Background</div>
+    <h2 class="section-title">Data scientist. Systems thinker.<br>Builder of things that scale.</h2>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I specialize in the messy, high-stakes middle ground where machine learning meets real-time production systems — specifically in ad tech and retail media. I've spent 7+ years designing ranking models, budget pacing engines, and auction frameworks that move metrics that matter to the business.</p>
+        <p>My work at The Home Depot's Orange Apron Media ($1B+ retail media network) spans the full ML lifecycle: from Bayesian statistics and XGBoost CTR models to GenAI pipelines that generate video ads autonomously from merchant catalogs.</p>
+        <p>I'm equally at home in a Jupyter notebook, a GKE cluster, or a whiteboard session with product and engineering leadership — translating ambiguity into infrastructure that ships.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div>
+            <div class="hi-title">MS — UT Dallas</div>
+            <div class="hi-desc">Business Analytics · Data Science & Applied ML · 2019</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div>
+            <div class="hi-title">Deep domain in Ad Tech</div>
+            <div class="hi-desc">GSP Auctions · RTB · PID Pacing · Sponsored Search · Two-Tower Retrieval</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div>
+            <div class="hi-title">Advanced GenAI practitioner</div>
+            <div class="hi-desc">Multi-agent swarms · LangGraph · RAG · Vector DBs · LLM orchestration</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div>
+            <div class="hi-title">GCP-native infrastructure</div>
+            <div class="hi-desc">BigQuery · Vertex AI · GKE · Spark · Dataproc · Airflow</div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div>
+            <div class="hi-title">U.S. Patent filed</div>
+            <div class="hi-desc">Distributed Throttling for Consistent Content Service — The Home Depot</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-label">Work History</div><div class="divider-line"></div></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-eyebrow">Experience</div>
+    <h2 class="section-title">Where I've built things.</h2>
+    <p class="section-sub">From telecom NLP at Ericsson to retail media auction engineering at one of America's largest home improvement retailers.</p>
+
+    <div class="exp-list">
+
+      <!-- THD -->
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-co">The Home Depot</div>
+          <div class="exp-date">Aug 2022 – Present</div>
+          <div class="exp-location">Orange Apron Media · Remote (Atlanta, GA)</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Senior Data Scientist — Ad Monetization, Sponsored Ranking & Auction Optimization</div>
+          <ul class="exp-bullets">
+            <li>Led architecture and production deployment of a <strong>patented PID-based pacing and distributed throttling platform</strong> within the $1B+ retail media ecosystem; stabilized multi-merchant budget delivery, boosted CTR by 6%, CPC by 5%, and generated <strong>$14M in incremental annual ad revenue</strong>. U.S. Patent Application Filed.</li>
+            <li>Designed an ML-driven <strong>Dynamic Auction Sizing Framework</strong> on GCP/BigQuery to optimize winner slot density; boosted CPW by 18%, CPM by 0.6%, and contributed 1.5% incremental marketplace revenue.</li>
+            <li>Built and deployed an end-to-end <strong>XGBoost CTR Prediction Model</strong> for high-throughput sponsored search ranking; elevated CTR by 8.5%, CPM by 12.4%, accounting for an approximate 7% annual boost in ad revenue.</li>
+            <li>Architected an enterprise-scale <strong>offline simulation framework</strong> on GKE + Spark to evaluate ranking, retrieval, and monetization algorithms pre-A/B test; compressed feature-to-production cycles by 35%.</li>
+            <li>Spearheaded <strong>Two-Tower Embedding-Based Retrieval & Neural Search</strong> for sponsored product matching; CTR up 22%, Publisher Revenue per Search (RPS) up 25%.</li>
+            <li>Pioneered the <strong>'Ad Video Generator' GenAI initiative</strong> — automated pipeline using LLMs and diffusion models to transform static catalog images into animated video ads, unlocking net-new ad slot inventory.</li>
+          </ul>
+          <div>
+            <span class="exp-tag accent">$14M Revenue Impact</span>
+            <span class="exp-tag accent">U.S. Patent</span>
+            <span class="exp-tag">PID Pacing</span>
+            <span class="exp-tag">XGBoost CTR</span>
+            <span class="exp-tag">Two-Tower Retrieval</span>
+            <span class="exp-tag">GenAI</span>
+            <span class="exp-tag">GKE · BigQuery</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ericsson -->
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-co">Ericsson</div>
+          <div class="exp-date">Feb 2020 – Jul 2022</div>
+          <div class="exp-location">Plano, TX</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Data Scientist (Promoted from Intern)</div>
+          <ul class="exp-bullets">
+            <li>Architected a high-performance <strong>multimodal search & retrieval engine</strong> using Python and advanced text/video indexing pipelines; improved semantic retrieval relevance by 60–70% at production scale.</li>
+            <li>Developed an ensemble <strong>incident classification system</strong> combining topic modeling and one-shot deep learning for volatile network alarm streams; drove MTTR down by 20–30%.</li>
+            <li>Engineered a blended <strong>spatio-temporal regressor pipeline</strong> mapping RF telemetry and geo-segmentation features to project cell-site capacity; improved throughput forecasting accuracy by 10–15%.</li>
+            <li>Designed an internal <strong>Flask API microservice</strong> to recommend remediation workflows for network drops; empowered Tier-1 engineers to resolve 15–20% of complex escalations autonomously.</li>
+          </ul>
+          <div>
+            <span class="exp-tag">Multimodal Retrieval</span>
+            <span class="exp-tag">Topic Modeling</span>
+            <span class="exp-tag">One-Shot Learning</span>
+            <span class="exp-tag">Spatio-Temporal ML</span>
+            <span class="exp-tag">Flask API</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TCS -->
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-co">Tata Consultancy Services</div>
+          <div class="exp-date">Mar 2015 – Dec 2017</div>
+          <div class="exp-location">Pune, India</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Systems Engineer — Business & Systems Analysis</div>
+          <ul class="exp-bullets">
+            <li>Served as core technical liaison bridging enterprise business goals with systems architecture; translated ambiguous data specs into structured engineering documentation for complex software deployments.</li>
+            <li>Formulated data validation strategies and system testing frameworks ensuring backend environments aligned with corporate data compliance benchmarks.</li>
+          </ul>
+          <div>
+            <span class="exp-tag">Enterprise Systems</span>
+            <span class="exp-tag">Data Validation</span>
+            <span class="exp-tag">Systems Analysis</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-eyebrow">Technical Skills</div>
+    <h2 class="section-title">The stack behind the work.</h2>
+    <p class="section-sub">A decade of accumulated depth across ad tech systems, ML infrastructure, and the latest GenAI tooling.</p>
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <div class="sg-head">
+          <div class="sg-title">Core Ad Tech & Systems</div>
+        </div>
+        <div class="sg-chips">
+          <span class="chip">Sponsored Search</span>
+          <span class="chip">GSP Auctions</span>
+          <span class="chip">Real-Time Bidding</span>
+          <span class="chip">Dynamic Auction Sizing</span>
+          <span class="chip">PID Budget Pacing</span>
+          <span class="chip">Distributed Throttling</span>
+          <span class="chip">Micro-Marketplace Optimization</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head">
+          <div class="sg-title">Machine Learning & AI</div>
+        </div>
+        <div class="sg-chips">
+          <span class="chip">CTR Prediction</span>
+          <span class="chip">Learning to Rank</span>
+          <span class="chip">XGBoost / GBDT</span>
+          <span class="chip">Two-Tower Embeddings</span>
+          <span class="chip">Neural Information Retrieval</span>
+          <span class="chip">Deep Learning</span>
+          <span class="chip">GenAI Ad Content Gen</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head">
+          <div class="sg-title">Advanced GenAI / Agents</div>
+        </div>
+        <div class="sg-chips">
+          <span class="chip">Multi-Agent Swarms</span>
+          <span class="chip">LangGraph</span>
+          <span class="chip">LLM Orchestration</span>
+          <span class="chip">Faiss / Pinecone</span>
+          <span class="chip">RAG Architecture</span>
+          <span class="chip">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head">
+          <div class="sg-title">Data & Infrastructure</div>
+        </div>
+        <div class="sg-chips">
+          <span class="chip">GCP</span>
+          <span class="chip">BigQuery</span>
+          <span class="chip">Vertex AI</span>
+          <span class="chip">GKE / Kubernetes</span>
+          <span class="chip">Apache Spark</span>
+          <span class="chip">Dataproc</span>
+          <span class="chip">Airflow</span>
+          <span class="chip">Docker</span>
+          <span class="chip">CI/CD</span>
+          <span class="chip">Streaming Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-head">
+          <div class="sg-title">Languages & Frameworks</div>
+        </div>
+        <div class="sg-chips">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">PyTorch</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">Scikit-Learn</span>
+          <span class="chip">Pandas · NumPy</span>
+          <span class="chip">Hugging Face</span>
+          <span class="chip">R</span>
+          <span class="chip">Unix</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATENTS -->
+<section id="patents">
+  <div class="container">
+    <div class="section-eyebrow">Recognition</div>
+    <h2 class="section-title">Patents & Credentials</h2>
+    <p class="section-sub">Novel algorithmic contributions recognized at the IP level, alongside advanced AI certifications.</p>
+    <div class="patent-card reveal">
+      <div class="patent-bar"></div>
+      <div class="patent-body">
+        <div class="patent-label">U.S. Patent Application Filed · Assignee: The Home Depot</div>
+        <div class="patent-title">Distributed Throttling for Consistent Content Service</div>
+        <div class="patent-desc">Novel algorithmic architecture establishing real-time PID pacing mechanics for web-scale digital marketplace monetization. Engineered to stabilize multi-merchant budget delivery across a $1B+ retail media network, with measured impact of $14M in incremental annual ad revenue and 6% lift in click-through rate.</div>
+        <div class="cert-row">
+          <div class="cert-badge">Certification</div>
+          <div class="cert-text">Claude Code Certified Developer — Advanced AI Orchestration & Automated Codebase Management Architecture (Anthropic)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-eyebrow">Education</div>
+    <h2 class="section-title">Academic foundation.</h2>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="edu-inst">The University of Texas at Dallas</div>
+        <div class="edu-degree">Master of Science in Business Analytics<br><em>Specialization: Data Science & Applied Machine Learning</em></div>
+        <div class="edu-year">Jan 2018 – Dec 2019</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-inst">BITS Pilani</div>
+        <div class="edu-degree">Bachelor of Engineering in Chemical Engineering<br><em>Birla Institute of Technology and Science</em></div>
+        <div class="edu-year">Aug 2010 – May 2014</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-eyebrow" style="text-align:center">Let's connect</div>
+      <h2 class="section-title">Open to the right opportunity.</h2>
+      <p class="section-sub">I'm interested in senior / staff / principal data scientist roles, especially in ad tech, retail media, marketplace optimization, or advanced GenAI systems. Reach out — let's talk.</p>
+      <div class="contact-links reveal">
+        <a class="contact-chip" href="mailto:piyush_ds@email.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+        <a class="contact-chip" href="https://linkedin.com/in/piyush-ds" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="contact-chip" href="https://github.com/piyush-ds" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Piyush Mittal</span> &nbsp;·&nbsp; Senior Data Scientist &nbsp;·&nbsp; Texas, USA &nbsp;·&nbsp; Built with intent, not templates.
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
